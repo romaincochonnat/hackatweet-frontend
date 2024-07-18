@@ -1,0 +1,28 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-modal-content {
+  background-color: #252525; /* Background color for the modal */
+}
+
+.ant-modal-body {
+  background-color: #252525; /* Background color for the modal content */
+}
+
+.signUp {
+  width: 40%;
+  height: 30px;
+  border-radius: 20px 20px 20px 20px;
+  color: white;
+  background-color: #e19067;
+}
+
+/* .signIn {
+  width: 40%;
+  height: 30px;
+  border-radius: 20px 20px 20px 20px;
+  color: #e19067;
+  background-color: #252525;
+} */

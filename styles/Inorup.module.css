@@ -1,0 +1,4 @@
+.globalContainer {
+  display: flex;
+  flex-direction: column;
+}
