@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import styles from "../styles/Modal.module.css";
 import Image from "next/image";
-import { Redirect } from "react-router-dom";
+import { useRouter } from "next/router";
 
 const App = (props) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -15,14 +16,7 @@ const App = (props) => {
   const showModal = () => {
     setOpen(true);
   };
-  const handleOk = () => {
-    setModalText("The modal will be closed after two seconds");
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
-  };
+
   const handleCancel = () => {
     console.log("Clicked cancel button");
     setOpen(false);
@@ -39,6 +33,7 @@ const App = (props) => {
     colorButton = "#e19067";
     hidden = true;
     signingin = true;
+    console.log(signingin);
   }
 
   let modalContent;
@@ -109,27 +104,24 @@ const App = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log("prout2");
+        console.log(data);
         if (data.result === true) {
-          return <Redirect to="/feed" />;
+          router.push("/main");
         }
       });
   }
 
   return (
     <>
-      <Button
-        type="primary"
-        onClick={showModal}
-        style={{ backgroundColor: colorButton }}
-      >
+      <Button type="primary" onClick={showModal}>
         {props.name}
       </Button>
       <Modal
         open={open}
-        onOk={handleOk}
         confirmLoading={confirmLoading}
-        onCancel={handleCancel}
         footer={null} // Enlever les boutons Cancel et OK
+        onCancel={handleCancel}
       >
         {modalContent}
       </Modal>
