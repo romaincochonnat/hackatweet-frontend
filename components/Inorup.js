@@ -9,13 +9,13 @@ function Inorup() {
       <div className={styles.logoContainer}>
         <Image
           src="/zimage-removebg-preview.png"
-          width={100}
-          height={100}
+          width={75}
+          height={75}
           alt="brand logo"
         />
       </div>
-      <h1 className={styles.title1}>See what's happening ❤️</h1>
-      <h2 className={styles.title2}>Join Hackatweet today.❤️</h2>
+      <h1 className={styles.title1}>See what's happening</h1>
+      <h2 className={styles.title2}>Join Hackatweet today ❤️</h2>
       <Modal name="Sign up" />
 
       <h3 className={styles.title3}>Already have an account ?</h3>

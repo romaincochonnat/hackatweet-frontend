@@ -2,3 +2,19 @@
   display: flex;
   flex-direction: column;
 }
+.title1 {
+  line-height: 1.15;
+  font-size: 4rem;
+  color: white;
+}
+.title2 {
+  line-height: 1.15;
+  font-size: 2rem;
+  color: white;
+}
+
+.title3 {
+  line-height: 1.15;
+  font-size: 1rem;
+  color: white;
+}

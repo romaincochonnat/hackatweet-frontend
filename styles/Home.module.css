@@ -3,7 +3,6 @@
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
   justify-content: center;
-  border: 1px #e94653 solid;
   height: 100vh;
 }
 
@@ -29,7 +28,6 @@
   grid-row-end: -1;
   grid-column-start: 1;
   grid-column-end: 4;
-  border: 1px #e94653 solid;
   background-image: url("../public/cover.jpg");
   background-size: cover;
 }
@@ -39,17 +37,15 @@
   grid-row-end: -1;
   grid-column-start: 4;
   grid-column-end: -1;
-  border: 1px #e94653 solid;
   background-color: #252525;
   display: flex;
 }
 
 .rightContentB {
-  border: 1px #e94653 solid;
   background-color: #252525;
   width: 50%;
 }
 .rightContentA {
-  border: 1px #e94653 solid;
-  width: 50%;
+  width: 40%;
+  padding: 5%;
 }
