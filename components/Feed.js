@@ -9,6 +9,7 @@ function Feed() {
 
   return (
     <main className={styles.mainFeed}>
+      <h1 className={styles.title2}>Home</h1>
       <div className={styles.tweetRedaction}>
         <input
           className={styles.inputTweet}
@@ -26,6 +27,8 @@ function Feed() {
       </div>
 
       <div className={styles.tweetContainer}>
+        <Tweet />
+        <Tweet />
         <Tweet />
         <Tweet />
       </div>

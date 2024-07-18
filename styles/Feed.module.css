@@ -106,6 +106,7 @@
 .mainFeed {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .buttonTweet {
@@ -146,6 +147,8 @@
 .tweetContainer {
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+  height: 80%;
 }
 
 .tweetAuthor {
@@ -169,4 +172,8 @@
 
 .tweet {
   color: white;
+}
+
+.tweetRedaction {
+  height: 20%;
 }

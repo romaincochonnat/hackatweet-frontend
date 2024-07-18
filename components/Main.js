@@ -36,7 +36,6 @@ function Main() {
           </div>
         </div>
         <div className={styles.centerContent}>
-          <h1 className={styles.title2}>Home</h1>
           <Feed />
         </div>
         <div className={styles.rightContent}>
