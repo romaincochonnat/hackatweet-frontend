@@ -4,6 +4,8 @@ import Feed from "./Feed";
 import Image from "next/image";
 
 function Main() {
+  const user = useSelector((state) => state.credentials.value);
+
   return (
     <div>
       <main className={styles.main}>
@@ -17,13 +19,16 @@ function Main() {
             />
           </div>
           <div>
-            <div>
-              <Image
-                src="/zimage-removebg-preview.png"
-                width={100}
-                height={100}
-                alt="brand logo"
-              />
+            <div className={styles.userBlock}>
+              <div>
+                <Image
+                  src="/zimage-removebg-preview.png"
+                  width={100}
+                  height={100}
+                  alt="brand logo"
+                />
+              </div>
+              <h3>{user.username}</h3>
             </div>
             <button
               className={styles.buttonLogout}

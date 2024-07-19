@@ -3,8 +3,12 @@ import { Button, Modal } from "antd";
 import styles from "../styles/Modal.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = (props) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.credentials.value);
+
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -108,6 +112,7 @@ const App = (props) => {
         console.log(data);
         if (data.result === true) {
           router.push("/main");
+          dispatch(login(data.info));
         }
       });
   }
