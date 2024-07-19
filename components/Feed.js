@@ -28,6 +28,7 @@ function Feed() {
   }
 
   let tweets = allTweet.map((x) => {
+    console.log(x);
     return (
       <Tweet
         content={x.content}
@@ -64,8 +65,12 @@ function Feed() {
         <input
           className={styles.inputTweet}
           type="text"
-          placeholder="Tweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet"
-          onChange={(e) => setCurrentTweet(e.target.value)}
+          placeholder="What's up today ? Tell us your thoughts and aspirations 😀😀😀"
+          onChange={(e) => {
+            if (currentTweet.length < 280) {
+              setCurrentTweet(e.target.value);
+            }
+          }}
           value={currentTweet}
         />
         <div className={styles.infoTweetContainer}>

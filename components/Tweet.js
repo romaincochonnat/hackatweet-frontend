@@ -16,8 +16,8 @@ function Tweet(props) {
         <div className={styles.photoContainer}>
           <img
             src={props.image}
-            width={100}
-            height={100}
+            width={50}
+            height={50}
             alt="brand logo"
             className={styles.roundImage}
           />
