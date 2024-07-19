@@ -1,5 +1,5 @@
 import styles from "../styles/Feed.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tweet from "./Tweet";
 
 import { useSelector } from "react-redux";
@@ -12,19 +12,31 @@ function Feed() {
   let [allTweet, setAllTweet] = useState([]);
   let [currentTweet, setCurrentTweet] = useState("");
 
+  useEffect(() => {
+    displayAllTweets();
+  }, []);
+
   function displayAllTweets() {
     fetch("http://localhost:3000/tweet/alltweet")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         if (data.result === true) {
-          setAllTweet(data.tweets);
+          setAllTweet(data.tweets.reverse());
         }
       });
   }
 
   let tweets = allTweet.map((x) => {
-    return <Tweet content={x.content} />;
+    return (
+      <Tweet
+        content={x.content}
+        firstname={x.user.firstname}
+        username={x.user.username}
+        image={x.user.image}
+        date={x.date}
+      />
+    );
   });
 
   function postTweet() {
@@ -34,6 +46,7 @@ function Feed() {
       body: JSON.stringify({
         token: user.token,
         content: currentTweet,
+        date: Date.now(),
       }),
     })
       .then((response) => response.json())

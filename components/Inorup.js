@@ -5,14 +5,12 @@ import Image from "next/image";
 import Modal from "./Modal";
 
 function Inorup() {
-
   const [showow, setShowow] = useState("");
 
   function show() {
-    console.log("mierda")
     setShowow("Votre inscription est validée, faites maintenant un Sign In");
   }
-console.log(showow)
+  console.log(showow);
   return (
     <div className={styles.globalContainer}>
       <div className={styles.logoContainer}>

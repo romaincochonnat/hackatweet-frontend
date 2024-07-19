@@ -2,10 +2,15 @@ import styles from "../styles/Feed.module.css";
 import Trend from "./Trend";
 import Feed from "./Feed";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+
+import { logout } from "../reducers/credentials";
 
 function Main() {
   const user = useSelector((state) => state.credentials.value);
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -34,7 +39,8 @@ function Main() {
             <button
               className={styles.buttonLogout}
               onClick={() => {
-                logout();
+                dispatch(logout());
+                router.push("/");
               }}
             >
               Logout

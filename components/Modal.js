@@ -17,6 +17,7 @@ const App = (props) => {
   const [username, setUsername] = useState("");
   const [firstname, setFirstname] = useState("");
   const [password, setPassword] = useState("");
+  const [image, setImage] = useState("");
 
   const showModal = () => {
     setOpen(true);
@@ -72,6 +73,15 @@ const App = (props) => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
+      {!hidden ? (
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="URL Image de profil"
+          onChange={(e) => setImage(e.target.value)}
+          value={image}
+        />
+      ) : null}
       <button
         className={styles.buttonModal}
         onClick={() => {
@@ -95,6 +105,7 @@ const App = (props) => {
         username: username,
         firstname: firstname,
         password: password,
+        image: image,
       }),
     })
       .then((response) => response.json())
