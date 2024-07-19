@@ -10,7 +10,6 @@ function Inorup() {
   function show() {
     setShowow("Votre inscription est validée, faites maintenant un Sign In");
   }
-  console.log(showow);
   return (
     <div className={styles.globalContainer}>
       <div className={styles.logoContainer}>

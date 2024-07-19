@@ -24,7 +24,6 @@ const App = (props) => {
   };
 
   const handleCancel = () => {
-    console.log("Clicked cancel button");
     setOpen(false);
   };
 
@@ -39,7 +38,6 @@ const App = (props) => {
     colorButton = "#e19067";
     hidden = true;
     signingin = true;
-    console.log(signingin);
   }
 
   let modalContent;
@@ -127,10 +125,7 @@ const App = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("prout2");
-        console.log(data);
         if (data.result === true) {
-          console.log(data.info);
           dispatch(login(data.info));
           router.push("/main");
         }

@@ -30,16 +30,18 @@ function Main() {
             <div className={styles.userBlock}>
               <div className={styles.profiluser}>
                 <div>
-                <Image
-                  src={user.image}
-                  width={50}
-                  height={50}
-                  alt="brand logo"
-                  className={styles.roundImage}
-                /></div><div style={{width:"3%"}}></div>
+                  <img
+                    src={user.image}
+                    width={50}
+                    height={50}
+                    alt="brand logo"
+                    className={styles.roundImage}
+                  />
+                </div>
+                <div style={{ width: "3%" }}></div>
                 <div>
-                <h3 className={styles.title3}>{user.firstname}</h3>
-                <h4 className={styles.title4}>@{user.username}</h4>
+                  <h3 className={styles.title3}>{user.firstname}</h3>
+                  <h4 className={styles.title4}>@{user.username}</h4>
                 </div>
               </div>
             </div>

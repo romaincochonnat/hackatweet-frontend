@@ -20,7 +20,6 @@ function Feed() {
     fetch("http://localhost:3000/tweet/alltweet")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.result === true) {
           setAllTweet(data.tweets.reverse());
         }
@@ -28,7 +27,6 @@ function Feed() {
   }
 
   let tweets = allTweet.map((x) => {
-    console.log(x);
     return (
       <Tweet
         content={x.content}
@@ -36,6 +34,7 @@ function Feed() {
         username={x.user.username}
         image={x.user.image}
         date={x.date}
+        fonction={displayAllTweets}
       />
     );
   });
@@ -52,7 +51,6 @@ function Feed() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.result === true) {
           displayAllTweets();
         }
