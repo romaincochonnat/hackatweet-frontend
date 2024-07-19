@@ -18,3 +18,11 @@
   font-size: 1rem;
   color: white;
 }
+
+.title4 {
+  padding-top: 10%;
+  line-height: 1.15;
+  font-size: 1rem;
+  color:  #e19067;
+  text-align: center;
+}

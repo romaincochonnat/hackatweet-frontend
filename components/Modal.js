@@ -94,7 +94,12 @@ const App = (props) => {
         username: username,
         firstname: firstname,
         password: password,
-      }),
+      })
+    }).then(response => response.json())
+    .then(data => {
+      if (data.result) {
+      handleCancel(false)
+      props.show()}
     });
   }
   function signin() {
