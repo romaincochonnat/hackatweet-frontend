@@ -18,6 +18,8 @@ function Main() {
         <div className={styles.leftContent}>
           <div>
             <Image
+              className={styles.imagelogo}
+              onClick={() => (window.location.href = "/main")}
               src="/zimage-removebg-preview.png"
               width={100}
               height={100}
@@ -26,15 +28,20 @@ function Main() {
           </div>
           <div>
             <div className={styles.userBlock}>
-              <div>
+              <div className={styles.profiluser}>
+                <div>
                 <Image
-                  src="/zimage-removebg-preview.png"
-                  width={100}
-                  height={100}
+                  src={user.image}
+                  width={50}
+                  height={50}
                   alt="brand logo"
-                />
+                  className={styles.roundImage}
+                /></div><div style={{width:"3%"}}></div>
+                <div>
+                <h3 className={styles.title3}>{user.firstname}</h3>
+                <h4 className={styles.title4}>@{user.username}</h4>
+                </div>
               </div>
-              <h3>{user.username}</h3>
             </div>
             <button
               className={styles.buttonLogout}

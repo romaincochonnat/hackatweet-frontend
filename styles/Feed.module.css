@@ -37,6 +37,8 @@
 }
 
 .leftContent {
+  padding-left: 20px;
+  padding-bottom: 20px;
   grid-row-start: 1;
   grid-row-end: -1;
   grid-column-start: 1;
@@ -88,7 +90,7 @@
 }
 
 .buttonLogout {
-  width: 40%;
+  width: 20%;
   height: 30px;
   border-radius: 20px 20px 20px 20px;
   color: #252525;
@@ -176,4 +178,20 @@
 
 .tweetRedaction {
   height: 20%;
+}
+
+.imagelogo {
+  cursor: pointer
+}
+
+.profiluser {
+  margin-left: 15px;
+  line-height: 1.15;
+  font-size: 1rem;
+  color: white;
+  padding: 2%;
+  display: flex;
+  color: white;
+  align-items:center;
+  
 }
