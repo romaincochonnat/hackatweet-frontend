@@ -2,6 +2,7 @@ import styles from "../styles/Feed.module.css";
 import Trend from "./Trend";
 import Feed from "./Feed";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 function Main() {
   const user = useSelector((state) => state.credentials.value);

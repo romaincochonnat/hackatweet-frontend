@@ -4,6 +4,7 @@ import styles from "../styles/Modal.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "../reducers/credentials";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -94,13 +95,15 @@ const App = (props) => {
         username: username,
         firstname: firstname,
         password: password,
-      })
-    }).then(response => response.json())
-    .then(data => {
-      if (data.result) {
-      handleCancel(false)
-      props.show()}
-    });
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result) {
+          handleCancel(false);
+          props.show();
+        }
+      });
   }
   function signin() {
     fetch("http://localhost:3000/users/signin", {
@@ -116,8 +119,9 @@ const App = (props) => {
         console.log("prout2");
         console.log(data);
         if (data.result === true) {
-          router.push("/main");
+          console.log(data.info);
           dispatch(login(data.info));
+          router.push("/main");
         }
       });
   }

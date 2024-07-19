@@ -2,6 +2,8 @@ import styles from "../styles/Feed.module.css";
 import { useState } from "react";
 import Tweet from "./Tweet";
 
+import { useSelector } from "react-redux";
+
 import Image from "next/image";
 
 function Feed() {
