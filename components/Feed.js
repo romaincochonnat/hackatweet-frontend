@@ -7,11 +7,24 @@ import { useSelector } from "react-redux";
 import Image from "next/image";
 
 function Feed() {
+  const user = useSelector((state) => state.credentials.value);
+
   let [allTweet, setAllTweet] = useState([]);
   let [currentTweet, setCurrentTweet] = useState("");
 
+  function displayAllTweets() {
+    fetch("http://localhost:3000/tweet/alltweet")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.result === true) {
+          setAllTweet(data.tweets);
+        }
+      });
+  }
+
   let tweets = allTweet.map((x) => {
-    return <Tweet content={x} />;
+    return <Tweet content={x.content} />;
   });
 
   function postTweet() {
@@ -19,14 +32,15 @@ function Feed() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        token: username,
-        content: password,
+        token: user.token,
+        content: currentTweet,
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         if (data.result === true) {
+          displayAllTweets();
         }
       });
   }
@@ -46,7 +60,7 @@ function Feed() {
           <button
             className={styles.buttonTweet}
             onClick={() => {
-              setAllTweet([...allTweet, currentTweet]);
+              postTweet();
               setCurrentTweet("");
             }}
           >
@@ -54,7 +68,6 @@ function Feed() {
           </button>
         </div>
       </div>
-
       <div className={styles.tweetContainer}>{tweets}</div>
     </main>
   );
