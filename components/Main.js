@@ -63,8 +63,6 @@ function Main() {
           <h1 className={styles.title2}>Trends</h1>
           <div className={styles.hashtagContainer}>
             <Trend />
-            <Trend />
-            <Trend />
           </div>
         </div>
       </main>
