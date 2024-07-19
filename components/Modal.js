@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../reducers/credentials";
 
 const App = (props) => {
+  let path = "https://hackatweet-backend-black.vercel.app/";
   const dispatch = useDispatch();
   const user = useSelector((state) => state.credentials.value);
 
@@ -96,7 +97,7 @@ const App = (props) => {
   );
 
   function signup() {
-    fetch("http://localhost:3000/users/signup", {
+    fetch(`${path}users/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -115,7 +116,7 @@ const App = (props) => {
       });
   }
   function signin() {
-    fetch("http://localhost:3000/users/signin", {
+    fetch(`${path}users/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

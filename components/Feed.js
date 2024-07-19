@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Image from "next/image";
 
 function Feed() {
+  let path = "https://hackatweet-backend-black.vercel.app/";
   const user = useSelector((state) => state.credentials.value);
 
   let [allTweet, setAllTweet] = useState([]);
@@ -17,7 +18,7 @@ function Feed() {
   }, []);
 
   function displayAllTweets() {
-    fetch("http://localhost:3000/tweet/alltweet")
+    fetch(`${path}tweet/alltweet`)
       .then((response) => response.json())
       .then((data) => {
         if (data.result === true) {
@@ -40,7 +41,7 @@ function Feed() {
   });
 
   function postTweet() {
-    fetch("http://localhost:3000/tweet", {
+    fetch(`${path}tweet`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 function Tweet(props) {
+  let path = "https://hackatweet-backend-black.vercel.app/";
   const user = useSelector((state) => state.credentials.value);
   let [isLiked, setIsLiked] = useState(false);
   let [styleHeart, setStyleHeart] = useState({
@@ -21,7 +22,7 @@ function Tweet(props) {
   }, []);
 
   function getNbLike() {
-    fetch("http://localhost:3000/tweet/nblike", {
+    fetch(`${path}tweet/nblike`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -36,7 +37,7 @@ function Tweet(props) {
   }
 
   function deleteTweet() {
-    fetch("http://localhost:3000/tweet", {
+    fetch(`${path}tweet`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -78,7 +79,7 @@ function Tweet(props) {
       if (!isLiked) {
         setStyleHeart({ cursor: "pointer", color: "#e19067" });
         setIsLiked(true);
-        await fetch("http://localhost:3000/tweet/like", {
+        await fetch(`${path}tweet/like`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -88,7 +89,7 @@ function Tweet(props) {
       } else {
         setStyleHeart({ cursor: "pointer", color: "" });
         setIsLiked(false);
-        await fetch("http://localhost:3000/tweet/unlike", {
+        await fetch(`${path}/tweet/unlike`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
